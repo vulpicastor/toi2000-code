@@ -7,20 +7,20 @@ AU_IN_METERS = 149597870700.
 SOLAR_RADIUS_IN_METERS = 695700000.
 AU_OVER_SOLAR_RADIUS = AU_IN_METERS / SOLAR_RADIUS_IN_METERS
 NEWTON_GRAV_CONST = 6.67430e-11  # m^3 kg^-1 s^-2
-NOMINAL_SOLAR_GRAVITATIONAL_CONSTANT = 1.3271244e20  # m^3 s^-2
-NOMINAL_SOLAR_MASS_CORRECTION = (NOMINAL_SOLAR_GRAVITATIONAL_CONSTANT /
+NOMINAL_SOLAR_MASS_PARAM = 1.3271244e20  # m^3 s^-2
+NOMINAL_SOLAR_MASS_CORRECTION = (NOMINAL_SOLAR_MASS_PARAM /
                                  ((2 * np.pi) **2
                                   * AU_IN_METERS ** 3
                                   / (365.25 * 24 * 3600) ** 2))
-SOLAR_DENSITY = (NOMINAL_SOLAR_GRAVITATIONAL_CONSTANT / NEWTON_GRAV_CONST
+SOLAR_DENSITY = (NOMINAL_SOLAR_MASS_PARAM / NEWTON_GRAV_CONST
                  / SOLAR_RADIUS_IN_METERS ** 3 / (4 * np.pi / 3))  # kg m^-3
 SOLAR_TEFF = 5772.  # Kelvin
 EARTH_EQ_RADIUS_IN_METERS = 6378100.
 JUPITER_EQ_RADIUS_IN_METERS = 7.1492e7
-NOMINAL_EARTH_GRAV_PARAM = 3.986004e14  # m^3/s^2
-NOMINAL_JUPITER_GRAV_PARAM =  1.2668653e17  # m^3/s^2
-SOLAR_MASS_IN_EARTH_MASS = NOMINAL_SOLAR_GRAVITATIONAL_CONSTANT / NOMINAL_EARTH_GRAV_PARAM
-SOLAR_MASS_IN_JUPITER_MASS = NOMINAL_SOLAR_GRAVITATIONAL_CONSTANT / NOMINAL_JUPITER_GRAV_PARAM
+NOMINAL_EARTH_MASS_PARAM = 3.986004e14  # m^3/s^2
+NOMINAL_JUPITER_MASS_PARAM =  1.2668653e17  # m^3/s^2
+SOLAR_MASS_IN_EARTH_MASS = NOMINAL_SOLAR_MASS_PARAM / NOMINAL_EARTH_MASS_PARAM
+SOLAR_MASS_IN_JUPITER_MASS = NOMINAL_SOLAR_MASS_PARAM / NOMINAL_JUPITER_MASS_PARAM
 DAY_IN_SECONDS = 24 * 60 * 60
 
 STEFAN_BOLTZMAN = 5.67037441918442945397099673188923087584012297029130e-8  # J m^-2 s^-1 K^-4
@@ -36,14 +36,14 @@ def calculate_stellar_radius(stellar_mass, logg):
     """
     surface_g = 10. ** logg
     stellar_radius = (
-        np.sqrt(stellar_mass * NOMINAL_SOLAR_GRAVITATIONAL_CONSTANT * 1e6 / surface_g)
+        np.sqrt(stellar_mass * NOMINAL_SOLAR_MASS_PARAM * 1e6 / surface_g)
         / (SOLAR_RADIUS_IN_METERS * 1e2))
     return stellar_radius
 
 def calculate_stellar_logg(stellar_mass, stellar_radius):
     """Calculate surface gravity in dex(cgs). Inputs are in solar units."""
     surface_g = (
-        NOMINAL_SOLAR_GRAVITATIONAL_CONSTANT * stellar_mass
+        NOMINAL_SOLAR_MASS_PARAM * stellar_mass
         / (SOLAR_RADIUS_IN_METERS * stellar_radius)**2
         * 1e2)  # cm/s^2.
     return np.log10(surface_g)
@@ -63,7 +63,7 @@ def calculate_planet_radius(planet_radius_ratio, stellar_radius):
 def calculate_min_planet_mass(rv_semiamp, ecc, period, stellar_mass):
     """rv_semiamp in m/s, period in days, stellar_mass in solar mass -> m_p sin(i) in Jupiter mass"""
     mp_sini = (rv_semiamp * np.sqrt(1 - ecc**2)
-               * NOMINAL_JUPITER_GRAV_PARAM ** (-1/3.)
+               * NOMINAL_JUPITER_MASS_PARAM ** (-1/3.)
                * (stellar_mass * SOLAR_MASS_IN_JUPITER_MASS) ** (2/3.)
                * (period * DAY_IN_SECONDS / (2 * np.pi)) ** (1/3.))
     return mp_sini
@@ -71,13 +71,13 @@ def calculate_min_planet_mass(rv_semiamp, ecc, period, stellar_mass):
 def calculate_min_planet_mass_earth(rv_semiamp, ecc, period, stellar_mass):
     """rv_semiamp in m/s, period in days, stellar_mass in solar mass -> m_p sin(i) in Earth mass"""
     mp_sini = (rv_semiamp * np.sqrt(1 - ecc**2)
-               * NOMINAL_EARTH_GRAV_PARAM ** (-1/3.)
+               * NOMINAL_EARTH_MASS_PARAM ** (-1/3.)
                * (stellar_mass * SOLAR_MASS_IN_EARTH_MASS) ** (2/3.)
                * (period * DAY_IN_SECONDS / (2 * np.pi)) ** (1/3.))
     return mp_sini
 
 def calculate_rv_semiamp(min_planet_mass, ecc, period, stellar_mass):
-    rv_semiamp = (min_planet_mass * NOMINAL_SOLAR_GRAVITATIONAL_CONSTANT ** (1/3.)
+    rv_semiamp = (min_planet_mass * NOMINAL_SOLAR_MASS_PARAM ** (1/3.)
                   * stellar_mass ** (-2/3.)
                   * (period * DAY_IN_SECONDS / (2 * np.pi)) ** (-1/3.)
                   / np.sqrt(1 - ecc ** 2))
@@ -146,7 +146,7 @@ def calculate_omega(secosw, sesinw):
     return np.degrees(np.arctan2(sesinw, secosw))
 
 def calculate_planet_density(planet_mass, planet_radius):
-    mp = planet_mass * NOMINAL_JUPITER_GRAV_PARAM / NEWTON_GRAV_CONST
+    mp = planet_mass * NOMINAL_JUPITER_MASS_PARAM / NEWTON_GRAV_CONST
     rp = planet_radius * JUPITER_EQ_RADIUS_IN_METERS
     planet_volume = (4/3 * np.pi) * rp ** 3
     return mp / planet_volume * 1e-3  # Convert to cgs units.
