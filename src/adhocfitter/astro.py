@@ -77,6 +77,15 @@ def calculate_min_planet_mass_earth(rv_semiamp, ecc, period, stellar_mass):
     return mp_sini
 
 def calculate_rv_semiamp(min_planet_mass, ecc, period, stellar_mass):
+    """Calculate the RV semiamplitude in m/s.
+
+    Args:
+        min_planet_mass (float): Minimum planet mass (Mp sin i) in units of
+            nominal Solar mass.
+        ecc (float): Planet's eccentricity.
+        period (float): Planet's orbital period.
+        stellar_mass (float): Stellar mass in units of nominal Solar mass.
+    """
     rv_semiamp = (min_planet_mass * NOMINAL_SOLAR_MASS_PARAM ** (1/3.)
                   * stellar_mass ** (-2/3.)
                   * (period * DAY_IN_SECONDS / (2 * np.pi)) ** (-1/3.)
