@@ -4,7 +4,7 @@ authors:
 - family-names: Lizhou
   given-names: Sha
   orcid: https://orcid.org/0000-0001-5401-8079
-title: vulpicastor/toi2000-code: Code and data for the TOI-2000 discovery paper
+title: "vulpicastor/toi2000-code: Code and data for the TOI-2000 discovery paper"
 version: v20230228.1
 date-released: 2023-02-28
 url: "https://github.com/vulpicastor/toi2000-code"
@@ -17,5 +17,4 @@ preferred-citation:
   doi: 10.48550/arXiv.2209.14396
   title: "TESS spots a mini-neptune interior to a hot saturn in the TOI-2000 system"
   journal: "arXiv e-prints"
-  start: 2209.14396
   year: 2023
