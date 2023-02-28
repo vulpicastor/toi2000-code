@@ -60,7 +60,7 @@ def plot_multi_planet_folded_light_curve(
     for filter_name in set(filters):
         ldlc_objs[filter_name] = xo.LimbDarkLightCurve(
                 limb_dark_params[f'u_{filter_name}'])
-    
+
     fig, axs = plt.subplots(
         num_light_curves,
         num_planets,
@@ -87,7 +87,7 @@ def plot_multi_planet_folded_light_curve(
         model_dflux_sum = np.sum(model_dflux, axis=1)
         plot_model_phases, plot_model_dflux = plot_model_light_curve(
             ldlc_obj, orbit, radii_planets, texp, supersample, max_phases)
-        
+
         if design is None:
                 lc_trend = 0.
         else:
@@ -228,12 +228,45 @@ def plot_multi_planet_folded_rv(
             ax.errorbar(rv_phase, rv_only_planet, rv_errorbar, label=label, **rv_data_style)
 
 
-def make_multi_planet_rv_axes(num_planets, unfolded=True, residuals=True, figure_kwargs={'dpi': 300}):
+# def make_multi_planet_rv_axes(num_planets, unfolded=True, residuals=True, row_max_ax=2, figure_kwargs={'dpi': 300}):
+#     figure_kwargs['figsize'] = (7, 8)
+#     fig = plt.figure(constrained_layout=False, **figure_kwargs)
+#     num_folded_rows = int(np.ceil(num_planets / row_max_ax))
+#     heights = [5, 3 * num_folded_rows]
+#     if unfolded:
+#         gs = gridspec.GridSpec(
+#             2, min(num_planets, row_max_ax), figure=fig, wspace=0.25, hspace=0.25, height_ratios=heights)
+#         folded_row = 1
+#         if residuals:
+#             gs0 = gs[0, :].subgridspec(2, 1, hspace=0, height_ratios=[2, 1])
+#             unfolded_ax = fig.add_subplot(gs0[0])
+#             residual_ax = fig.add_subplot(gs0[1], sharex=unfolded_ax)
+#         else:
+#             unfolded_ax = fig.add_subplot(gs[0, :])
+#             residual_ax = None
+#     else:
+#         folded_row = 0
+#         unfolded_ax = None
+#         residual_ax = None
+#     folded_axs = []
+#     if num_planets <= row_max_ax:
+#         for i in range(num_planets):
+#             folded_axs.append(fig.add_subplot(gs[folded_row, i]))
+#     else:
+#         gs1 = gs[folded_row,
+#         for i in range(num_planets):
+
+#     return fig, folded_axs, unfolded_ax, residual_ax
+
+def make_multi_planet_rv_axes(num_planets, unfolded=True, residuals=True, row_max_ax=2, figure_kwargs={'dpi': 300}):
     figure_kwargs['figsize'] = (7, 8)
-    heights = [5, 3]
     fig = plt.figure(constrained_layout=False, **figure_kwargs)
+    num_folded_rows = int(np.ceil(num_planets / row_max_ax))
+    heights = [5] + [3] * num_folded_rows
     if unfolded:
-        gs = gridspec.GridSpec(2, num_planets, figure=fig, wspace=0.25, hspace=0.25, height_ratios=heights)
+        gs = gridspec.GridSpec(
+            1+num_folded_rows, min(num_planets, row_max_ax),
+            figure=fig, wspace=0.25, hspace=0.25, height_ratios=heights)
         folded_row = 1
         if residuals:
             gs0 = gs[0, :].subgridspec(2, 1, hspace=0, height_ratios=[2, 1])
@@ -248,5 +281,8 @@ def make_multi_planet_rv_axes(num_planets, unfolded=True, residuals=True, figure
         residual_ax = None
     folded_axs = []
     for i in range(num_planets):
-        folded_axs.append(fig.add_subplot(gs[folded_row, i]))
+        row_n = i // row_max_ax
+        col_n = i % row_max_ax
+        folded_axs.append(fig.add_subplot(gs[folded_row + row_n, col_n]))
+
     return fig, folded_axs, unfolded_ax, residual_ax
