@@ -3,20 +3,46 @@ message: >-
   If you use this software, please also cite the paper Sha et al. (2023). TESS
   spots a mini-neptune in the TOI-2000 system.
   https://ui.adsabs.harvard.edu/abs/2022arXiv220914396S/abstract
+abstract: >-
+  This repository contains the Python Jupyter notebooks and data tables used in
+  the preparation of the paper titled "TESS spots a mini-neptune interior to a
+  hot saturn in the TOI-2000 system" by Sha et al. (2023).
 authors:
-- family-names: Sha
-  given-names: Lizhou
-  orcid: https://orcid.org/0000-0001-5401-8079
-title: "vulpicastor/toi2000-code: Code and data for the TOI-2000 discovery paper"
-version: v20230228.3
-date-released: 2023-02-28
-url: "https://github.com/vulpicastor/toi2000-code"
-preferred-citation:
-  type: article
-  authors:
   - family-names: Sha
     given-names: Lizhou
     orcid: https://orcid.org/0000-0001-5401-8079
+title: "vulpicastor/toi2000-code: Code and data for the TOI-2000 discovery paper"
+version: v20230228.4
+date-released: 2023-02-28
+url: "https://github.com/vulpicastor/toi2000-code"
+license: MIT
+preferred-citation:
+  type: article
+  authors:
+    - family-names: Sha
+      given-names: Lizhou
+      orcid: https://orcid.org/0000-0001-5401-8079
+    - family-names: Vanderburg
+      given-names: Andrew M.
+      orcid: https://orcid.org/0000-0001-7246-5438
+    - family-names: Huang
+      given-names: Chelsea X.
+      orcid: https://orcid.org/0000-0003-0918-7484
+    - family-names: Armstrong
+      given-names: David J.
+      orcid: https://orcid.org/0000-0002-5080-4117
+    - family-names: Brahm
+      given-names: Rafael
+      orcid: https://orcid.org/0000-0002-9158-7315
+    - family-names: Giacalone
+      given-names: Steven
+      orcid: https://orcid.org/0000-0002-8965-3969
+    - family-names: Wood
+      given-names: Mackenna L.
+      orcid: https://orcid.org/0000-0001-7336-7725
+    - family-names: Collins
+      given-names: Karen A.
+      orcid: https://orcid.org/0000-0001-6588-9574
   doi: 10.48550/arXiv.2209.14396
   title: "TESS spots a mini-neptune interior to a hot saturn in the TOI-2000 system"
   journal: "arXiv e-prints"
