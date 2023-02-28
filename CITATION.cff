@@ -1,11 +1,14 @@
 cff-version: 1.1.0
-message: "If you use this software, please cite it as below."
+message: >-
+  If you use this software, please also cite the paper Sha et al. (2023). TESS
+  spots a mini-neptune in the TOI-2000 system.
+  https://ui.adsabs.harvard.edu/abs/2022arXiv220914396S/abstract
 authors:
 - family-names: Lizhou
   given-names: Sha
   orcid: https://orcid.org/0000-0001-5401-8079
 title: "vulpicastor/toi2000-code: Code and data for the TOI-2000 discovery paper"
-version: v20230228.1
+version: v20230228.2
 date-released: 2023-02-28
 url: "https://github.com/vulpicastor/toi2000-code"
 preferred-citation:
