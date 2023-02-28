@@ -18,3 +18,25 @@ The main data tables are enumerated below.
   transiting hot or warm gas giants.
 - `PS_2022.08.19_15.48.34.csv`: Snapshot of Planetary Systems table from the
   NASA Exoplanet Archive.
+
+
+## Isochrones
+
+The main notebook `FittingToi2000Xo.ipynb` depends on
+[MIST](http://waps.cfa.harvard.edu/MIST/model_grids.html)
+stellar evolutionary tracks and bolometric correction grids as repackaged by
+the `isochrones`
+[Python package](https://github.com/timothydmorton/isochrones)
+([Morton et al. 2015](http://ascl.net/1503.010)).
+The user is advised to install the `isochrones` package and trigger download
+of the full MIST model grids. For the Jupyter notebook in this repository,
+the following files must be copied or linked from isochrone's data directory
+(by default `~/.isochrones`) to a newly created directory under this repo
+`data/isochrones`, and placed in exactly the relative location. The files are:
+
+- `mist/tracks/full_grid_v1.2_vvcrit0.0.npz`
+  (If this does not work, `mist/tracks/full_grid_v1.2_vvcrit0.4.npz` can be
+  substituted, provided the corresponding filename in `FittingToi2000Xo.ipynb`
+  is replaced.)
+- `BC/mist/UBVRIplus.h5`
+- `BC/mist/WISE.h5`
