@@ -4,18 +4,18 @@ message: >-
   spots a mini-neptune in the TOI-2000 system.
   https://ui.adsabs.harvard.edu/abs/2022arXiv220914396S/abstract
 authors:
-- family-names: Lizhou
-  given-names: Sha
+- family-names: Sha
+  given-names: Lizhou
   orcid: https://orcid.org/0000-0001-5401-8079
 title: "vulpicastor/toi2000-code: Code and data for the TOI-2000 discovery paper"
-version: v20230228.2
+version: v20230228.3
 date-released: 2023-02-28
 url: "https://github.com/vulpicastor/toi2000-code"
 preferred-citation:
   type: article
   authors:
-  - family-names: Lizhou
-    given-names: Sha
+  - family-names: Sha
+    given-names: Lizhou
     orcid: https://orcid.org/0000-0001-5401-8079
   doi: 10.48550/arXiv.2209.14396
   title: "TESS spots a mini-neptune interior to a hot saturn in the TOI-2000 system"
