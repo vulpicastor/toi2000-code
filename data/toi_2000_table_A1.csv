@@ -13,10 +13,12 @@ star_id,pl_id,hostname,pl_name,pl_letter,rv_flag,tran_flag,ttv_flag,pl_orbper,pl
 4,1,TOI-1130,TOI-1130 c,c,1,1,1,8.350381,0.000032,-0.000032,16.8,3,-2.5,310,14,-14,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2020ApJ...892L...7H/abstract,TTV detection by Korth et al. (submitted)
 5,0,TOI-2494,TOI-2494.02,02,,1,,2.4087648,0.0000207,-0.0000207,2.23597,0.214017,-0.214017,,,,,,,,candidate,https://ui.adsabs.harvard.edu/abs/2021ApJS..254...39G/abstract,TOI
 5,1,TOI-2494,TOI-2494.01,01,,1,,8.3761316,0.0000117,-0.0000117,9.53663,0.59366,-0.59366,,,,,,,,candidate,https://ui.adsabs.harvard.edu/abs/2021ApJS..254...39G/abstract,TOI
-6,0,TOI-2000,TOI-2000 b,b,1,1,0,3.098330,0.000021,-0.000019,2.698811,0.151599,-0.152296,11.041882,2.442098,-2.391728,0,,,,confirmed,This work,
-6,1,TOI-2000,TOI-2000 c,c,1,1,0,9.1270550,0.0000073,-0.0000072,8.143357,0.314274,-0.304572,81.691612,4.676319,-4.578817,0,,,,confirmed,This work,
+23,0,WASP-84,WASP-84 c,c,1,1,0,1.4468849,0.0000022,-0.0000016,1.95,0.12,-0.12,15.2,4.5,-4.2,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2023arXiv230509177M/abstract,
+23,1,WASP-84,WASP-84 b,b,1,1,0,8.52349648,0.0000006,-0.0000006,10.72,0.27,-0.27,220,18,-18,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2023arXiv230509177M/abstract,
+6,0,TOI-2000,TOI-2000 b,b,1,1,0,3.09833,0.000021,-0.000019,2.698811,0.151599,-0.152296,11.041882,2.442098,-2.391728,0,,,,confirmed,This work,
+6,1,TOI-2000,TOI-2000 c,c,1,1,0,9.127055,0.0000073,-0.0000072,8.143357,0.314274,-0.304572,81.691612,4.676319,-4.578817,0,,,,confirmed,This work,
 7,0,TOI-5398,TOI-5398.02,02,,1,,4.7728997,0.0009118,-0.0009118,3.30213,0.172879,-0.172879,,,,,,,,candidate,https://ui.adsabs.harvard.edu/abs/2021ApJS..254...39G/abstract,TOI
-7,1,TOI-5398,TOI-5398.01,01,,1,,10.590923,0.0006842,-0.0006842,11.1189,0.439777,-0.439777,,,,,,,,candidate,https://ui.adsabs.harvard.edu/abs/2021ApJS..254...39G/abstract,TOI
+7,1,TOI-5398,TOI-5398 b,b,,1,,10.590923,0.0006842,-0.0006842,11.1189,0.439777,-0.439777,,,,,,,,validated,https://ui.adsabs.harvard.edu/abs/2021ApJS..254...39G/abstract,Validated by https://ui.adsabs.harvard.edu/abs/2022MNRAS.516.4432M/abstract
 8,0,Kepler-487,KOI-191.03,03,,1,,0.708621057,1.357E-06,-1.357E-06,1.2,0.12,-0.09,,,,,,,,candidate,https://ui.adsabs.harvard.edu/abs/2018ApJS..235...38T/abstract,Kepler DR25
 8,1,Kepler-487,Kepler-487 d,d,0,1,0,2.418406841,2.472E-06,-2.472E-06,2.25,0.23,-0.17,,,,,,,,validated,https://ui.adsabs.harvard.edu/abs/2018ApJS..235...38T/abstract,Kepler DR25
 8,2,Kepler-487,Kepler-487 b,b,0,1,0,15.35876777,2.129E-06,-2.129E-06,10.89,1.11,-0.82,,,,,,,,validated,https://ui.adsabs.harvard.edu/abs/2018ApJS..235...38T/abstract,Kepler DR25
