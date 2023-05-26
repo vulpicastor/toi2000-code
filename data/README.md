@@ -23,8 +23,8 @@ In addition, there are supplementary tables containing data used for making
 figures in the paper.
 - `light_curve_8ee0099b-8272-46d9-be75-2c5a50561150.csv`: ASAS-SN light curve
   of TOI-2000.
-- `TOI2000_20220317_562.dat`: Gemini South speckle imaging of ASAS-SN, 562 nm.
-- `TOI2000_20220317_832.dat`: Gemini South speckle imaging of ASAS-SN, 832 nm.
+- `TOI2000_20220317_562.dat`: Gemini South speckle imaging contrast curve of TOI-2000, 562 nm.
+- `TOI2000_20220317_832.dat`: Gemini South speckle imaging contrast curve of TOI-2000, 832 nm.
 - `rv_residuals/k{1..4}/*.rdb`: TOI-2000 RV residuals under Keplerian models
   of 1 to 4 planets.
 
