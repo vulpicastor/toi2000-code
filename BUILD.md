@@ -17,7 +17,7 @@ theory the following instructions also apply to Docker by substituting the
 First, build the production container using the following command with the
 present working directory set to the root of this repository.
 ```
-podman build Dockerfile
+podman build -f Dockerfile
 ```
 The command should output a hash of the built container image. It can then be
 run using the following command, substituting `$IMAGEHASH` with the actual
@@ -41,7 +41,7 @@ The `environment.yml` file was generated from a development version of the
 container. If you wish to recreate the development container with the latest
 version of packages, you can substitute the build command with the following.
 ```
-podman build Dockerfile.dev
+podman build -f Dockerfile.dev
 ```
 The instructions for running the development container is identical to those
 for the production container above.
