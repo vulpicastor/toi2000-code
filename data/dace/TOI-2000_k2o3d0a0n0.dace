@@ -1,0 +1,63 @@
+﻿MODEL-TYPE:RV
+MODEL-VERSION:2.0
+#
+# STATISTICS
+# ModelType: k2o3d0a0n0
+# nMeas: 66
+# nParam: 11
+# nFree: 55
+# chi2: 407.71782813407975
+# chi2Red: 7.413051420619632
+# bic: 746.2404904773011
+# lnLike: -350.07714415750524
+# lnProb: -331.9067056634088
+# sigRes: 6.621208692255555
+#
+# STAR:
+# parameter	value	error
+STAR_M_MSUN	1	0.0025
+STAR_R_RSUN	1	0.01
+STAR_PAR_MAS	100	0.5
+STAR_AGE_GYR	5	0
+STAR_ALPHA_HMS	00:00:00.0	-
+STAR_DELTA_DMS	00:00:00.0	-
+STAR_MV	0	0
+STAR_BV	0	0
+STAR_DIST_PC	0	0
+#
+# REFERENCE EPOCH:
+EPOCH_DAY	55500	0
+#
+# NOISE:
+# parameter	value	error	fit	prior	prior_mean	prior_std
+NOISE_SIGMA_JIT_MPS	0	0	false	false	0	0
+NOISE_SIGMA_chiron_1_MPS	0	4.757438767869853	false	false	0	0
+NOISE_SIGMA_feros_1_MPS	0	0	false	false	0	0
+NOISE_SIGMA_harps_1_MPS	0	0	false	false	0	0
+#
+DRIFT_LIN_MPSPYR	0	0	false	_	false	0	0
+DRIFT_QUAD_MPSPYR2	0	0	false	_	false	0	0
+DRIFT_CUB_MPSPYR3	0	0	false	_	false	0	0
+DRIFT_chiron_1_MPS	6651.055751008334	2.2250655060631903	true	false	false	0	0
+DRIFT_feros_1_MPS	8127.3124310973135	2.0860320671076886	true	false	false	0	0
+DRIFT_harps_1_MPS	8119.630342104885	0.4409168497462549	true	false	false	0	0
+#
+# ACTIVITY INDICATORS:
+# Id	Indicator_name	Kernel_smoother	Smoothing_timescale_yr	Filter_type	Amplitude_MPS	Amplitude_error_MPS	Amplitude_fit	Amplitude_prior	Amplitude_prior_mean	Amplitude_prior_std	Scaled_jitter_MPS	Scaled_jitter_error_MPS	Scaled_jitter_fit	Scaled_jitter_prior	Scaled_jitter_prior_mean	Scaled_jitter_prior_std
+#
+# KEPLERIANS:
+# parameter	value	error	fit	prior	prior_mean	prior_std
+Kepnumber	2
+# mass [mearth] = 74.08712177403032
+KEPLERIAN0_P_DAY	9.127055055569498	0.0000072999932960450814	true	true	9.127055	0.0000073
+KEPLERIAN0_K_MPS	22.70660307282133	0.5879126888350681	true	false	0	0
+KEPLERIAN0_ECC	0.05900730878035682	0.02012998800189763	true	false	0	0
+KEPLERIAN0_OMEGA_DEG	131.60686471771515	15.914075915521535	true	false	0	0
+KEPLERIAN0_TC_DAY	59110.06588140731	0.00027999877084560176	true	true	59110.06588	0.00028
+#
+# mass [mearth] = 101.65163883895578
+KEPLERIAN1_P_DAY	91.23147359647987	1.1139775651163584	true	false	0	0
+KEPLERIAN1_K_MPS	14.43680632000232	0.6109337524368141	true	false	0	0
+KEPLERIAN1_ECC	0	0	false	false	0	0
+KEPLERIAN1_OMEGA_DEG	0	0	false	false	0	0
+KEPLERIAN1_TC_DAY	55520.54172663967	46.18313171698751	true	false	0	0

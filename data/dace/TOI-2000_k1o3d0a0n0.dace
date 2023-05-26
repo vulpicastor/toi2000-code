@@ -1,0 +1,56 @@
+﻿MODEL-TYPE:RV
+MODEL-VERSION:2.0
+#
+# STATISTICS
+# ModelType: k1o3d0a0n0
+# nMeas: 66
+# nParam: 6
+# nFree: 60
+# chi2: 1104.1006843210428
+# chi2Red: 18.40167807201738
+# bic: 1421.6750729541322
+# lnLike: -698.2685722509868
+# lnProb: -680.1002851800866
+# sigRes: 10.895866287233579
+#
+# STAR:
+# parameter	value	error
+STAR_M_MSUN	1	0.0025
+STAR_R_RSUN	1	0.01
+STAR_PAR_MAS	100	0.5
+STAR_AGE_GYR	5	0
+STAR_ALPHA_HMS	00:00:00.0	-
+STAR_DELTA_DMS	00:00:00.0	-
+STAR_MV	0	0
+STAR_BV	0	0
+STAR_DIST_PC	0	0
+#
+# REFERENCE EPOCH:
+EPOCH_DAY	55500	0
+#
+# NOISE:
+# parameter	value	error	fit	prior	prior_mean	prior_std
+NOISE_SIGMA_JIT_MPS	0	0	false	false	0	0
+NOISE_SIGMA_chiron_1_MPS	0	0	false	false	0	0
+NOISE_SIGMA_feros_1_MPS	0	0	false	false	0	0
+NOISE_SIGMA_harps_1_MPS	0	0	false	false	0	0
+#
+DRIFT_LIN_MPSPYR	0	0	false	_	false	0	0
+DRIFT_QUAD_MPSPYR2	0	0	false	_	false	0	0
+DRIFT_CUB_MPSPYR3	0	0	false	_	false	0	0
+DRIFT_chiron_1_MPS	6657.908122605201	2.198904390586	true	false	false	0	0
+DRIFT_feros_1_MPS	8119.273728221003	2.0226788253726093	true	false	false	0	0
+DRIFT_harps_1_MPS	8115.108041646311	0.3397020312021467	true	false	false	0	0
+#
+# ACTIVITY INDICATORS:
+# Id	Indicator_name	Kernel_smoother	Smoothing_timescale_yr	Filter_type	Amplitude_MPS	Amplitude_error_MPS	Amplitude_fit	Amplitude_prior	Amplitude_prior_mean	Amplitude_prior_std	Scaled_jitter_MPS	Scaled_jitter_error_MPS	Scaled_jitter_fit	Scaled_jitter_prior	Scaled_jitter_prior_mean	Scaled_jitter_prior_std
+#
+# KEPLERIANS:
+# parameter	value	error	fit	prior	prior_mean	prior_std
+Kepnumber	1
+# mass [mearth] = 75.90137410315619
+KEPLERIAN0_P_DAY	9.127055311135445	0.00000729991728673134	true	true	9.127055	0.0000073
+KEPLERIAN0_K_MPS	23.222025944940533	0.48776492267595895	true	false	0	0
+KEPLERIAN0_ECC	0	0	false	false	0	0
+KEPLERIAN0_OMEGA_DEG	0	0	false	false	0	0
+KEPLERIAN0_TC_DAY	59110.06589419321	0.00027998974201169137	true	true	59110.06588	0.00028
