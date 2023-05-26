@@ -28,6 +28,13 @@ figures in the paper.
 - `rv_residuals/k{1..4}/*.rdb`: TOI-2000 RV residuals under Keplerian models
   of 1 to 4 planets.
 
+The files under `dace/` are for importing into the
+[DACE RV](https://dace.unige.ch/radialVelocities/) facility
+by the University of Geneva.
+- `dace/*.rdb_`: RV data (identical to Table 8) in RDB format.
+- `dace/*.dace`: Keplerian RV model parameters for import into DACE. These
+  were used to compute the RV residuals under `rv_residuals/`.
+
 
 ## Isochrones
 
