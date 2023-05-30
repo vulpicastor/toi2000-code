@@ -9,8 +9,8 @@ star_id,pl_id,hostname,pl_name,pl_letter,rv_flag,tran_flag,ttv_flag,pl_orbper,pl
 2,1,Kepler-730,Kepler-730 b,b,0,1,0,6.491682808,,,12.3298788,0.5268220944,-0.5604490365,,,,,,,,validated,https://ui.adsabs.harvard.edu/abs/2019ApJ...870L..17C/abstract,
 3,0,WASP-132,WASP-132 c,c,0,1,0,1.011534,0.000005,-0.000005,1.85,0.1,-0.1,37.35,,,1,,,,validated,https://ui.adsabs.harvard.edu/abs/2022AJ....164...13H/abstract,
 3,1,WASP-132,WASP-132 b,b,1,1,0,7.133514,0.000004,-0.000004,10.05,0.34,-0.34,130.3096467,9.534852198,-9.534852198,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2022AJ....164...13H/abstract;https://ui.adsabs.harvard.edu/abs/2017MNRAS.465.3693H/abstract,Mass from Hellier et al. (2017)
-4,0,TOI-1130,TOI-1130 b,b,1,1,1,4.066499,0.000046,-0.000046,3.65,0.1,-0.1,54,,,1,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2020ApJ...892L...7H/abstract,RV detection by Korth et al. (submitted)
-4,1,TOI-1130,TOI-1130 c,c,1,1,1,8.350381,0.000032,-0.000032,16.8,3,-2.5,310,14,-14,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2020ApJ...892L...7H/abstract,TTV detection by Korth et al. (submitted)
+4,0,TOI-1130,TOI-1130 b,b,1,1,1,4.07445,0.00046,-0.00046,3.56,0.13,-0.13,19.28,0.97,-0.97,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2023arXiv230515565K/abstract,
+4,1,TOI-1130,TOI-1130 c,c,1,1,1,8.350231,0.000098,-0.000098,13.32,1.55,-1.41,325.59,5.59,-5.59,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2023arXiv230515565K/abstract,
 5,0,TOI-2494,TOI-2494.02,02,,1,,2.4087648,0.0000207,-0.0000207,2.23597,0.214017,-0.214017,,,,,,,,candidate,https://ui.adsabs.harvard.edu/abs/2021ApJS..254...39G/abstract,TOI
 5,1,TOI-2494,TOI-2494.01,01,,1,,8.3761316,0.0000117,-0.0000117,9.53663,0.59366,-0.59366,,,,,,,,candidate,https://ui.adsabs.harvard.edu/abs/2021ApJS..254...39G/abstract,TOI
 23,0,WASP-84,WASP-84 c,c,1,1,0,1.4468849,0.0000022,-0.0000016,1.95,0.12,-0.12,15.2,4.5,-4.2,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2023arXiv230509177M/abstract,
