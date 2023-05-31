@@ -5,11 +5,12 @@ import matplotlib
 from matplotlib import pyplot as plt
 import pandas as pds
 from matplotlib import cm
+from matplotlib import gridspec
 from matplotlib.colors import ListedColormap
 # from palettable import cubehelix
 
-plt.rcParams['font.sans-serif'] = ['TeX Gyre Heros', 'Helvetica', 'Arial', 'sans-serif']
-plt.rcParams['mathtext.fontset'] = 'stixsans'
+# plt.rcParams['font.sans-serif'] = ['TeX Gyre Heros', 'Helvetica', 'Arial', 'sans-serif']
+# plt.rcParams['mathtext.fontset'] = 'stixsans'
 
 for p in matplotlib.font_manager.findSystemFonts(fontpaths=[
     '/usr/share/texmf/fonts/opentype/', '/usr/share/fonts/opentype']):
@@ -289,36 +290,18 @@ def adjust_lightness(color, amount=0.5):
 JUPITER_RADIUS_IN_EARTH_RADIUS = 714920. / 63781
 
 def main():
-    #infile="KepHJtable_multi.txt"
-    infile = "../data/toi_2000_table_A1-Copy1.csv"
-    starfile = pds.read_csv("../data/Gianthosts.csv", index_col=False)
-    data=pds.read_csv(infile, index_col=False)
+    infile = "../data/toi_2000_table_A1.csv"
+    starfile = pds.read_csv("../data/Gianthosts.csv")
+    data=pds.read_csv(infile, index_col=['star_id', 'pl_id'])
     print(data.head())
     data['pl_radj'] = data['pl_rade'] / JUPITER_RADIUS_IN_EARTH_RADIUS
-    from matplotlib import gridspec
-    #3.5 inch
-    figure = plt.figure(figsize=[3.75,8.5])
+
+
+    figure = plt.figure(figsize=[3.75,8.75], dpi=300)
     gs1 = gridspec.GridSpec(26, 3)
     gs1.update(left=0.2, right=0.96, top=0.95, wspace=0.05, hspace=0.0)
     ax1 =  plt.subplot(gs1[1:,:])
 
-    # ch_cmap = cubehelix.Cubehelix.make(
-    # start_hue=180,
-    # end_hue=-100,
-    # min_sat=2.5,
-    # max_sat=0.1,
-    # min_light=0.2,
-    # max_light=0.9,
-    # n=16,
-    # name='spectral_cubehelix',
-    # )
-    # ch_cmap.show_continuous_image()
-
-    # print(ch_cmap)
-    #exit()
-    #figure = plt.figure()
-    #ax1 = figure.add_subplot(111)
-    #ax2 = figure.add_subplot(212)
     teff = np.array(starfile.st_teff) 
     rad = np.array(starfile.st_rad) 
     threshold = 6./11.21
@@ -333,36 +316,31 @@ def main():
     ax1.tick_params(axis="y",direction="in")
     ax1.tick_params(axis="x",which="both",direction="in", top=True, bottom=True)
     ps = 200
-    
+
     norm = matplotlib.colors.Normalize(vmin=4000, vmax=7000)
     nsys = len(starfile.star_id) 
     newcmap = my_cm
-    for i in range(nsys):
-        index = data.star_id==(i)
-        print(i, list(data.pl_name[index]))
-        # small_mask = np.logical_and(index, small)
-        # ax1.scatter(data.pl_orbper[small_mask],data.star_id[small_mask],s=data.pl_radj[small_mask]**2.*ps, alpha=1, color='0.4', edgecolor='none')
-        # ax1.scatter(data.pl_orbper[index*hjup*not_candidate],data.star_id[index*hjup*not_candidate],s=data.pl_radj[index*hjup*not_candidate]**2.*ps, alpha=1, color='C0', edgecolor='none')
-        # ax1.scatter(data.pl_orbper[index*wjup*not_candidate],data.star_id[index*wjup*not_candidate],s=data.pl_radj[index*wjup*not_candidate]**2.*ps, alpha=1, color='C1', edgecolor='none')
-        # ax1.scatter(data.pl_orbper[index*hjup*not_candidate],data.star_id[index*hjup*not_candidate],s=data.pl_radj[index*hjup*not_candidate]**2.*ps, alpha=1, color='C0', edgecolor='none')
-        # ax1.scatter(data.pl_orbper[index*wjup*not_candidate],data.star_id[index*wjup*not_candidate],s=data.pl_radj[index*wjup*not_candidate]**2.*ps, alpha=1, color='C1', edgecolor='none')
-        # ax1.scatter(data.pl_orbper[index],data.star_id[index],s=data.pl_radj[index]**2.*ps,  edgecolor='0.5', facecolor='none')
-        ax1.plot(data.pl_orbper[index],data.star_id[index],linestyle='dotted', color='0.8', zorder=0, linewidth=0.75)
 
-    small_mask = np.logical_and(small, not_candidate)
-    ax1.scatter(data.pl_orbper[small_mask],data.star_id[small_mask],s=data.pl_radj[small_mask]**2.*ps, alpha=1, color='0.4', edgecolor='none')
-    small_mask = np.logical_and(small, candidate)
-    ax1.scatter(data.pl_orbper[small_mask],data.star_id[small_mask],s=data.pl_radj[small_mask]**2.*ps, alpha=0.6, color='0.4', edgecolor='none')
-    hjup_mask = np.logical_and(hjup, not_candidate)
-    ax1.scatter(data.pl_orbper[hjup_mask],data.star_id[hjup_mask],s=data.pl_radj[hjup_mask]**2.*ps, alpha=1, color='C1', edgecolor='none')
-    hjup_mask = np.logical_and(hjup, candidate)
-    ax1.scatter(data.pl_orbper[hjup_mask],data.star_id[hjup_mask],s=data.pl_radj[hjup_mask]**2.*ps, alpha=0.6, color='C1', edgecolor='none')
-    wjup_mask = np.logical_and(wjup, not_candidate)
-    ax1.scatter(data.pl_orbper[wjup_mask],data.star_id[wjup_mask],s=data.pl_radj[wjup_mask]**2.*ps, alpha=1, color='C0', edgecolor='none')
-    wjup_mask = np.logical_and(wjup, candidate)
-    ax1.scatter(data.pl_orbper[wjup_mask],data.star_id[wjup_mask],s=data.pl_radj[wjup_mask]**2.*ps, alpha=0.6, color='C0', edgecolor='none')
-    # ax1.scatter(data.pl_orbper[index],data.star_id[index],s=data.pl_radj[index]**2.*ps,  edgecolor='0.5', facecolor='none')
-    # ax1.plot(data.pl_orbper[index],data.star_id[index],linestyle='dotted', color='0.8', zorder=0, linewidth=0.85)
+    for pos, i in enumerate(starfile.star_id):
+        index = (data.index.get_level_values('star_id') == i) & (data.tran_flag == 1)
+        table_slice = data.loc[i]
+        table_slice = table_slice[table_slice.tran_flag == 1]
+        print(i, list(table_slice.pl_name))
+        ax1.hlines(pos, min(table_slice['pl_orbper']), max(table_slice['pl_orbper']),
+                   linestyles='dotted', color='0.8', zorder=0, linewidth=0.75)
+
+        for idx, row in table_slice.iterrows():
+            if row['disposition'] == 'candidate':
+                plot_alpha = 0.6
+            else:
+                plot_alpha = 1.
+            if row['pl_radj'] <= threshold:
+                plot_color = '0.4'
+            elif row['pl_orbper'] < 10:
+                plot_color = 'C1'
+            else:
+                plot_color = 'C0'
+            ax1.scatter(row['pl_orbper'], pos, s=ps*row['pl_radj']**2., alpha=plot_alpha, color=plot_color, edgecolor='none')
         
     ax1.scatter(np.zeros(nsys)+0.5, range(nsys), s=rad**2.*ps, edgecolor='none', facecolor=newcmap(norm(teff)),zorder=0)
     ax1.scatter(np.zeros(nsys)+0.5, range(nsys), s=20, facecolor='white', marker='*',zorder=10) 
@@ -370,45 +348,38 @@ def main():
     # ax1.scatter(data.pl_orbper[wjup],data.star_id[wjup],s=data.pl_radj[wjup]**2.*ps, edgecolor='#1f77b4', facecolor='none')
     ax1.scatter(np.zeros(3)+110,np.arange(1,4),s=np.array([0.2, 0.4, 1.0])**2.*ps,c='k', edgecolor='none')
     ax1.set_xscale('log')
-    ax1.annotate("$0.2\,\mathrm{R}_\mathrm{J}$",[45,1.15], fontsize=8)
-    ax1.annotate("$0.4\,\mathrm{R}_\mathrm{J}$",[45,2.15], fontsize=8)
-    ax1.annotate("$1.0\,\mathrm{R}_\mathrm{J}$",[45,3.15], fontsize=8)
+    ax1.annotate("$0.2\,\mathrm{R}_\mathrm{J}$",[43,1.15], fontsize=8)
+    ax1.annotate("$0.4\,\mathrm{R}_\mathrm{J}$",[43,2.15], fontsize=8)
+    ax1.annotate("$1.0\,\mathrm{R}_\mathrm{J}$",[43,3.15], fontsize=8)
 
-    #labels = ['WASP-47', 'Kepler-730', 'WASP-132','TOI-1130', 'TOI-2494', 'TOI-2000', 'Kepler-487', 'Kepler-89', 'V1298 Tau','TOI-1692', 'Kepler-46', 'TOI-216', 'NGTS-11', 'TOI-1670','K2-290', 'TOI-2525', 'Kepler-117', 'Kepler-148', 'TOI-201', 'Kepler-30', 'Kepler-418']
     labels = list(starfile["hostname"])
     yrange = np.arange(0,nsys)
     ax1.set_yticks(yrange)
     ax1.set_yticklabels(labels, fontsize=8)
     ax1.set_xticks([1,10,100])
     ax1.set_xticklabels(['1','10','100'], fontsize='x-small')
-    ax1.get_yticklabels()[6].set_color("#EC2974")
+    ax1.get_yticklabels()[7].set_color("#EC2974")
     #ax1.get_yticklabels()[5].set_color("blue")
     ax1.set_xlim([0.3, 200])
     ax1.set_ylim([nsys,-1])
     ax1.set_xlabel("Period (day)", fontsize='small')
     
-    gradient = np.linspace(0, 1, 257)
-    gradient = np.vstack((gradient, gradient))
-    dt = (tmax-tmin)/256.
     ax2 =  plt.subplot(gs1[0,:])
-    ax2.imshow(gradient,aspect='auto', cmap=newcmap)
-    
+    plt.colorbar(cm.ScalarMappable(norm=norm, cmap=newcmap), cax=ax2, orientation='horizontal')
     ax2.xaxis.tick_top()
-    teffarr = np.array([4000, 5000, 6000, 7000])
-    newticklocation = (teffarr-tmin)/dt
-    ax2.set_xticks(newticklocation)
-    ax2.set_xticklabels(teffarr, fontsize='xx-small')
-    ax2.text(0.5,1.2, "$T_{\mathrm{eff},\!\star}$ (K)", verticalalignment='bottom',horizontalalignment='center', transform=ax2.transAxes, fontsize='small')
+    ax2.set_xticks([4000, 5000, 6000])
+    ax2.set_xticks([4250, 4500, 4750, 5250, 5500, 5750, 6250, 6500, 6750], minor=True)
+    ax2.text(0.5,1.2, r"$T_{\mathrm{eff},\!★}$ (K)", verticalalignment='bottom',horizontalalignment='center', transform=ax2.transAxes, fontsize='small')
     #ax2.set_ylabel("$T_{eff}$ [K]", fontsize=8)
     ax2.set_yticklabels([])
     ax2.set_yticks([])
-    ax2.tick_params(axis="x",which="both",direction="in")
-    # plt.tight_layout()
+    ax2.tick_params(axis="x",which="both",direction="in", labelsize='xx-small', pad=1)
 
-
-    plt.savefig("../plots/family_portrait.pdf",bbox_inches='tight', pad_inches=0.01)
     #plt.tight_layout()
-    #plt.show()
+    plt.savefig("../plots/family_portrait.pdf",bbox_inches='tight', pad_inches=0.01)
+    plt.savefig("../plots/family_portrait.svg",bbox_inches='tight', pad_inches=0.01)
+    plt.savefig("../plots/family_portrait.png",bbox_inches='tight', pad_inches=0.01)
+
     return
 
 if __name__=='__main__':
