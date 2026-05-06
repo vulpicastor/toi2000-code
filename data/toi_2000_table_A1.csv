@@ -1,6 +1,7 @@
 star_id,pl_id,hostname,pl_name,pl_letter,rv_flag,tran_flag,ttv_flag,pl_orbper,pl_orbpererr1,pl_orbpererr2,pl_rade,pl_radeerr1,pl_radeerr2,pl_masse,pl_masseerr1,pl_masseerr2,pl_masselim,pl_msinie,pl_msinieerr1,pl_msinieerr2,disposition,reference,notes
-25,0,TOI-4468,TOI-4468 b,b,1,1,0,2.77085274,0.00000036,-0.00000037,11.82,0.39,-0.35,,,,,,,,candidate,Livesey,
-25,1,TOI-4468,TOI-4468 c,c,0,1,0,7.013921,0.000014,-0.000023,3.18,0.16,-0.13,,,,,,,,candidate,Livesey,
+25,0,TOI-4468,TOI-4468 b,b,1,1,0,2.77085931,0.00000036,-0.00000036,11.29,0.31,-0.28,170.1,9.7,-8.8,0,,,,confirmed,Livesey et al. (2026),
+25,1,TOI-4468,TOI-4468 c,c,0,1,0,7.013900,0.000020,-0.000020,3.09,0.14,-0.12,,,,,,,,validated,Livesey et al. (2026),
+25,2,TOI-4468,TOI-4468.03,03,1,0,0,624,53,-38,,,,,,,,311,49,-51,candidate,Livesey et al. (2026),
 0,0,WASP-47,WASP-47 e,e,1,1,0,0.7895933,0.0000044,-0.0000044,1.808,0.026,-0.026,6.77,0.57,-0.57,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2022AJ....163..197B/abstract,
 0,1,WASP-47,WASP-47 b,b,1,1,1,4.1591492,0.0000006,-0.0000006,12.64,0.15,-0.15,363.6,7.3,-7.3,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2022AJ....163..197B/abstract,
 0,2,WASP-47,WASP-47 d,d,1,1,1,9.03055,0.00008,-0.00008,3.567,0.045,-0.045,14.2,1.3,-1.3,0,,,,confirmed,https://ui.adsabs.harvard.edu/abs/2022AJ....163..197B/abstract,
